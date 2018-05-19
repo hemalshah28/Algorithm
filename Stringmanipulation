@@ -1,0 +1,64 @@
+using System;
+
+// String Maniplulation.
+// Input= aabbcccccabbeef
+// Output will be = a2b2c4ab2e2f
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        //
+        string Inputstring = "aabbbbcccdefggggabccccddefereredffert";
+        int Counter =0;
+        for (int i =0 ; i< Inputstring.Length-1; i++)
+        {
+            Counter ++;
+            
+             if (i+1 == Inputstring.Length-1)
+             {
+                 if (Inputstring[i]!= Inputstring[i+1] )
+                 {
+                     //Print all;
+                      Counter= DisplayResult(Counter,Inputstring,i,true);
+                 }
+                 else
+                 {
+                     Counter++;
+                
+                    Counter= DisplayResult(Counter,Inputstring,i,false);
+                 }
+             }
+            else if (Inputstring[i]!= Inputstring[i+1] )
+            {
+                
+                 Counter= DisplayResult(Counter,Inputstring,i,false);
+            }
+
+        }
+        
+        
+    
+    }
+    public static  int DisplayResult(int Counter, string Inputstring, int index, bool Printall)
+    {
+        if (!Printall)
+        {
+                 if (Counter>1)
+                    {
+                        Console.Write($"{Inputstring[index]}{Counter}");
+                        
+                    }
+                else if (Counter==1)
+                    {
+                        Console.Write($"{Inputstring[index]}");
+                        
+                    }
+        }
+        else
+        {
+            Console.Write($"{Inputstring[index]}{Inputstring[index+1]}");
+        }
+        return Counter =0;
+    }
+}
