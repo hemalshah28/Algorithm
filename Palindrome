@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AnitPalidrome
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string Inputstring = Console.ReadLine().ToLower();
+            Console.WriteLine(StringIsPalidrome(Inputstring,Inputstring.Length-1,""));
+            Console.ReadKey();
+        }
+        public static int StringIsPalidrome(string Inputstring,int index,string Palidrome)
+        {
+            if (Inputstring.Length == 0) return -1 ;
+            if (index<0)
+            {
+                if (Palidrome.Equals(Inputstring))
+                    return 0;
+                else
+                    return Inputstring.Length;
+            }
+            Palidrome = Palidrome + Inputstring [index];
+            index--;
+            return StringIsPalidrome(Inputstring, index, Palidrome);
+        }
+    }
+}
